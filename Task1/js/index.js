@@ -299,8 +299,6 @@ function eventListeners(){
         { 
           item.archive = 'false';
           countActiveNote(item.type);
-          deleteFromArchived(item.type);
-          
         }
         return item.id;
       });
@@ -317,10 +315,13 @@ function eventListeners(){
     let data = ui.retrieveLocalStorgage();
     data.forEach(function(newField){
       if(newField.archive == 'true' && newField.id == id){
-        addArchivedTasks(newField,'none');
         
+        newField.archive = 'false';
+        
+        addArchivedTasks(newField,'none');
       }
     });
+    
   }
   
   function deleteFromPageArchive(id){
@@ -331,9 +332,12 @@ function eventListeners(){
       if(newField.archive == 'false' && newField.id == id){
         addNewNote(newField);
         
-        
+        newField.archive = 'true';
+        addActiveTasks(newField,'');
+       
       }
     });
+  
   }
 
   function addNewNote(newField){
