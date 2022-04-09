@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1</title>
+  <link href="./styles/style.css" rel="stylesheet">
+</head>
+<body>
+  <main class="main">
+    <table class="tables main-table" id="main-table">
+      <tr class="tableHeader">
+        <th class="header-title icon-column"></th>
+        <th class="header-title">Name</th>
+        <th class="header-title thiny-column">Created</th>
+        <th class="header-title thiny-column">Category</th>
+        <th class="header-title thiny-column">Content</th>
+        <th class="header-title">Dates</th>
+        <th class="header-title thiny-column icons-column">
+          <img class="icon" alt="bin" src="./static/archive-white.svg">
+          <img class="icon clear-table" alt="bin" src="./static/bin-white.svg">
+        </th>
+      </tr>
+    </table>
+    <div class="button-container">
+      <button class="open_form_button">
+        Create Note
+      </button>
+    </div>
+    <table class="tables second-table">
+      <tr class="tableHeader">
+        <th class="header-title icon-column"></th>
+        <th class="header-title">Note Category</th>
+        <th class="header-title thiny-column">Active</th>
+        <th class="header-title">Archived</th>
+      </tr>
+      <tr class="tableHeader table-row tasks">
+        <td class="header-title">
+          <div class="icon-container">
+            <img class="icon"alt="cart-shopping" src="./static/cart-shopping-solid.svg">
+          </div>
+        </td>
+        <td class="header-title">Task</td>
+        <td class="number-of-tasks header-title">0</td>
+        <td class="number-of-archived-tasks header-title">0</td>
+      </tr>
+      <tr class="tableHeader active active-tasks table-row">
+        <td class="header-title-orange">
+          <div class="icon-container">
+            <img class="icon" alt="cart-shopping" src="./static/cart-shopping-solid.svg">
+          </div>
+        </td>
+        <td class="header-title-orange">Name of Active Tasks</td>
+        <td class="header-title-orange">Created</td>
+        <td class="header-title-orange">Content</td>
+      </tr>
+      <tr class="tableHeader archived archived-tasks table-row">
+        <td class="header-title-orange">
+          <div class="icon-container">
+            <img class="icon" alt="cart-shopping" src="./static/cart-shopping-solid.svg">
+          </div>
+        </td>
+        <td class="header-title-orange">Name of Archived Taskss</td>
+        <td class="header-title-orange">Created</td>
+        <td class="header-title-orange">Content</td>
+      </tr>
+      <tr class="tableHeader table-row ideas">
+        <td class="header-title">
+            <div class="icon-container">
+              <img class="icon" alt="lightbulb" src="./static/lightbulb-regular.svg">
+            </div>
+          </div>
+        </td>
+        <td class="header-title">Idea</td>
+        <td class="number-of-ideas header-title">0</td>
+        <td class="number-of-archived-ideas header-title">0</td>
+      </tr>
+      <tr class="tableHeader active active-ideas table-row">
+        <td class="header-title-orange">
+          <div class="icon-container">
+            <img class="icon" alt="lightbulb" src="./static/lightbulb-regular.svg">
+          </div>
+        </td>
+        <td class="header-title-orange">Name of Active Ideas</td>
+        <td class="header-title-orange">Created</td>
+        <td class="header-title-orange">Content</td>
+      </tr>
+      <tr class="tableHeader archived archived-ideas table-row">
+        <td class="header-title-orange">
+          <div class="icon-container">
+            <img class="icon" alt="lightbulb" src="./static/lightbulb-regular.svg">
+          </div>
+        </td>
+        <td class="header-title-orange">Name of Archived Ideas</td>
+        <td class="header-title-orange">Created</td>
+        <td class="header-title-orange">Content</td>
+      </tr>
+      <tr class="table-row quotes">
+        <td class="header-title">
+          <div class="icon-container">
+            <img class="icon" alt="quote" src="./static/quote-right-solid.svg">
+          </div>
+        </td>
+        <td class="header-title">Quote</td>
+        <td class="number-of-quotes header-title">0</td>
+        <td class="number-of-archived-quotes header-title">0</td>
+      </tr>
+      <tr class="tableHeader active active-quotes table-row">
+        <td class="header-title-orange">
+          <div class="icon-container">
+            <img class="icon" alt="quote" src="./static/quote-right-solid.svg">
+          </div>
+        </td>
+        <td class="header-title-orange">Name of Active Quotes</td>
+        <td class="header-title-orange">Created</td>
+        <td class="header-title-orange">Content</td>
+      </tr>
+      <tr class="tableHeader archived archived-quotes table-row">
+        <td class="header-title-orange">
+          <div class="icon-container">
+            <img class="icon" alt="quote" src="./static/quote-right-solid.svg">
+          </div>
+        </td>
+        <td class="header-title-orange">Name of Archived Quotes</td>
+        <td class="header-title-orange">Created</td>
+        <td class="header-title-orange">Content</td>
+      </tr>
+      <tr class="table-row thoughts">
+        <td class="header-title">
+          <div class="icon-container">
+            <img class="icon" alt="head" src="./static/head.svg">
+          </div>
+        </td>
+        <td class="header-title">Random Thought</td>
+        <td class="number-of-thoughts header-title">0</td>
+        <td class="number-of-archived-thoughts header-title">0</td>
+      </tr>
+      <tr class="tableHeader active active-thoughts table-row">
+        <td class="header-title-orange">
+          <div class="icon-container">
+            <img class="icon" alt="head" src="./static/head.svg">
+          </div>
+        </td>
+        <td class="header-title-orange">Name of Active Random Thought</td>
+        <td class="header-title-orange">Created</td>
+        <td class="header-title-orange">Content</td>
+      </tr>
+      <tr class="tableHeader archived archived-thoughts table-row">
+        <td class="header-title-orange">
+          <div class="icon-container">
+            <img class="icon" alt="head" src="./static/head.svg">
+          </div>
+        </td>
+        <td class="header-title-orange">Name of Archived Random Thought</td>
+        <td class="header-title-orange">Created</td>
+        <td class="header-title-orange">Content</td>
+      </tr>
+    </table>
+    
+    <div class="note_form-container">
+      <form class="note_form" action="">
+        <div class="note_form-title">
+          <h1 class="form-title">Fill in the information</h1>
+        </div>
+        <div class="note_form-section">
+          <label class="note_form-label required_fill" for="form-selector">Choose the type of note:</label>
+          <select class="note_form-selector note_form-input current-type" name="form-selector" id="form-selector" required="true">
+              <option value="">Please choose a note type</option>
+              <option value="Task">Task</option>
+              <option value="Idea">Idea</option>
+              <option value="Quote">Quote</option>
+              <option value="Random Thought">Random Thought</option>
+          </select>
+        </div>
+        <div class="note_form-section">
+          <label class="note_form-label required_fill" for="form-name">Name:</label>
+        <input class="note_form-input current-name" type="text" id="form-name" name="form-name" maxlength="40" required>
+        </div>
+        <div class="note_form-section">
+          <label class="note_form-label required_fill" for="form-content">Content:</label>
+        <textarea class="note_form-input current-content" id="form-content" name="form-content" maxlength="200" rows="4" required></textarea>
+        </div>
+        <div class="note_form-buttons-container">
+          <input class="note_form-button add_note_button" type="button" value="Create note">
+          <input class="note_form-button close_form_button" type="button" value="Cancel">
+        </div>
+      </form>
+    </div>
+  </main>
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script src="./js/index.js" type="module"></script>
+  <script src="./js/monthsNames.js" type="module"></script>
+  
+</body>
+</html>
