@@ -1,0 +1,172 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.main{
+  min-width: 768px;
+  padding: 5px 20px;
+}
+
+.tables{
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  min-width: 600px;
+  text-align: left;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-row td:first-child, .tableHeader th:first-child{
+  border-radius: 5px 0px 0px 5px;
+}
+
+.table-row td:last-child, .tableHeader th:last-child{
+  border-radius: 0px 5px 5px 0px;
+}
+
+.header-title{
+  background-color: rgb(128, 144, 115);
+  color: #FFF;
+  height: 40px;
+  min-width: 60px;
+  word-wrap: break-word;
+}
+
+.header-title-orange{
+  background-color: rgb(206, 159, 98);
+  color: #FFF;
+  height: 40px;
+  min-width: 60px;
+  word-wrap: break-word;
+  
+}
+
+.header-title-orange-archive{
+  display: flex;
+}
+
+
+.table-row{
+  background-color: rgb(215, 225, 208);
+  font-weight: 600;
+  height: 50px;
+}
+
+.thiny-column{
+  width: 15%;
+}
+
+.icon-column{
+  width: 60px; 
+}
+
+.button-container{
+  display: flex;
+  justify-content: end;
+  margin: 5px 0px 40px 0px;
+  width: 100%;
+}
+
+.open_form_button{
+  padding: 5px 20px;
+  border-radius: 3px;
+}
+
+.icon-container{
+  background-color: rgb(11, 2, 59);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  padding: 4px;
+  margin: 4px 10px;
+}
+
+.icon{
+  width: 20px;
+}
+
+.icons-column{
+  text-align: right;
+  padding-right: 5px;
+}
+
+.note_form-container{
+  background-color: rgb(215, 225, 208);
+  border: 2px solid rgb(128, 144, 115);
+  height: 400px;
+  width: 500px;
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  display: none;
+}
+
+.note_form{
+  width: 100%;
+}
+
+.note_form-title{
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.note_form-section{
+  padding: 10px;
+}
+
+.note_form-selector{
+  border: 1px solid rgb(128, 144, 115);
+  border-radius: 10px;
+  padding: 3px 10px;
+}
+
+.note_form-input{
+  border: 1px solid rgb(128, 144, 115);
+  width: 90%;
+  padding: 5px 10px;
+  margin-top: 4px;
+  border-radius: 10px;
+  display: flex;
+  justify-items: end;
+}
+
+.note_form-buttons-container{
+  display: flex;
+  justify-content: end;
+  margin: 20px 20px 20px 5px;
+}
+
+.note_form-button{
+  background-color: #FFF;
+  border-radius: 5px;
+  padding: 4px 10px;
+  margin-right: 20px;
+}
+
+.content_fill{
+ height: 30px;
+}
+
+.required_fill::after{
+  content: "*";
+  color: red;
+}
+
+.error-massage{
+  font-size: 14px;
+  color: red;
+}
+
+.unarchiv_field-button{
+  margin-left: 20px;
+}
+
+.archive-img{
+  margin-left: 30px;
+  width: 30px;
+}
