@@ -1,4 +1,4 @@
-export let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
 
 export function hideArchive(){
   let list = document.querySelectorAll('.active-Task, .archived-Task, .active-Idea, .archived-Idea, .active-Quote, .archived-Quote, .active-RandomThought, .archived-RandomThought');
