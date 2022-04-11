@@ -17,14 +17,6 @@
   table-layout: fixed;
 }
 
-.table-row td:first-child, .tableHeader th:first-child{
-  border-radius: 5px 0px 0px 5px;
-}
-
-.table-row td:last-child, .tableHeader th:last-child{
-  border-radius: 0px 5px 5px 0px;
-}
-
 .header-title{
   background-color: rgb(128, 144, 115);
   color: #FFF;
@@ -39,18 +31,20 @@
   height: 40px;
   min-width: 60px;
   word-wrap: break-word;
-  
 }
-
-.header-title-orange-archive{
-  display: flex;
-}
-
 
 .table-row{
   background-color: rgb(215, 225, 208);
   font-weight: 600;
   height: 50px;
+}
+
+.table-row td:first-child, .tableHeader th:first-child{
+  border-radius: 5px 0px 0px 5px;
+}
+
+.table-row td:last-child, .tableHeader th:last-child{
+  border-radius: 0px 5px 5px 0px;
 }
 
 .thiny-column{
@@ -61,16 +55,9 @@
   width: 60px; 
 }
 
-.button-container{
-  display: flex;
-  justify-content: end;
-  margin: 5px 0px 40px 0px;
-  width: 100%;
-}
-
-.open_form_button{
-  padding: 5px 20px;
-  border-radius: 3px;
+.icons-column{
+  text-align: right;
+  padding-right: 5px;
 }
 
 .icon-container{
@@ -88,9 +75,16 @@
   width: 20px;
 }
 
-.icons-column{
-  text-align: right;
-  padding-right: 5px;
+.open_form_button-container{
+  display: flex;
+  justify-content: end;
+  margin: 5px 0px 40px 0px;
+  width: 100%;
+}
+
+.open_form_button{
+  padding: 5px 20px;
+  border-radius: 3px;
 }
 
 .note_form-container{
