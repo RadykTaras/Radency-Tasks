@@ -1,6 +1,10 @@
 import {countActiveNote} from './counting_notes.js';
 import {deleteFromArchived} from './counting_notes.js';
 import {UI} from './index.js';
+import {ui} from './index.js';
+import {data} from './index.js';
+import {id} from './index.js';
+import {addNewNote} from './AddNewNote.js';
 
 export function addActiveTasks(newField,display){
   
@@ -11,6 +15,7 @@ export function addActiveTasks(newField,display){
   newRow.classList.add("table-row");
   newRow.classList.add(`${typeOfNote}`);
   newRow.classList.add("active");
+  newRow.dataset.id = newField.id;
   newRow.style.display = display;
   newRow.innerHTML = `
   <td></td>
@@ -19,10 +24,11 @@ export function addActiveTasks(newField,display){
   <td>${newField.content}</td>
   `
   currentRow.after(newRow);
-  
+  refreshPageArchive(id);
 }
 
 export function addArchivedTasks(newField,display){
+  
   const typeOfNote = getCurrentType(newField, 'archived');
   const currentRow = document.querySelector(`.${typeOfNote}`),
     newRow = document.createElement("tr");
@@ -30,7 +36,9 @@ export function addArchivedTasks(newField,display){
   newRow.classList.add("table-row");
   newRow.classList.add(`${typeOfNote}`);
   newRow.classList.add("archived");
+  newRow.dataset.id = newField.id;
   newRow.style.display = display;
+  newRow.archived = "true";
   newRow.innerHTML = `
   <td><img class="icon unarchiv_field-button" alt="unarchiv" src="./static/unarchive.svg" data-id="${newField.id}"></td>
   <td>${newField.name}</td>
@@ -38,21 +46,23 @@ export function addArchivedTasks(newField,display){
   <td>${newField.content}</td>
   `
   currentRow.after(newRow);
+  refreshPageArchive(id);
   const unachiveButton = document.querySelector('.unarchiv_field-button');
+  
   unachiveButton.addEventListener('click',function (event){
-    
+
     let id = event.target.dataset.id;
     let tempData = data.filter(function(item){
       if(item.id == parseInt(id))
       { 
         item.archive = 'false';
         countActiveNote(item.type);
-        deleteFromArchived(item.type);
+        removeFieldFromArchive(id);
       }
       return item.id;
     });
-    data = tempData;
-    ui.addToLocalStorage(data);
+   
+    ui.addToLocalStorage(tempData);
     deleteFromPageArchive(id);
   })
 }
@@ -63,22 +73,24 @@ export function refreshPageArchive(id){
   let data = ui.retrieveLocalStorgage();
   data.forEach(function(newField){
     if(newField.archive == 'true' && newField.id == id){
-      
-      newField.archive = 'false';
       addArchivedTasks(newField,'none');
+      
     }
   });
+    ui.addToLocalStorage(data);
 }
 
 function deleteFromPageArchive(id){
   const ui = new UI();
+
   let data = ui.retrieveLocalStorgage();
   data.forEach(function(newField){
     if(newField.archive == 'false' && newField.id == id){
       addNewNote(newField);
       
-      newField.archive = 'true';
+      
       addActiveTasks(newField,'');
+      deleteFromArchived(newField.type);
     }
   });
 }
@@ -86,3 +98,11 @@ function deleteFromPageArchive(id){
 function getCurrentType(element, stan){
   return (`${stan}-${element.type.replace(/ /g, "")}`);
 }
+
+function removeFieldFromArchive(id){  
+  let activess = document.querySelectorAll('.archived');
+  for(let i = 0; i<activess.length; i++){
+    if(activess[i].dataset.id == id){
+      activess[i].remove();
+    }
+}}

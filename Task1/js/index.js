@@ -1,4 +1,3 @@
-
 import {hideArchive} from './open_close_archive.js';
 import {openEitForm} from './open_close_form.js';
 import {countActiveNote} from './counting_notes.js';
@@ -10,6 +9,14 @@ import {addActiveTasks} from './addNoteToArchiveTable.js';
 import {addArchivedTasks} from './addNoteToArchiveTable.js';
 import {refreshPageArchive} from './addNoteToArchiveTable.js';
 
+
+function removeFieldFromActive(id){  
+  let activess = document.querySelectorAll('.active');
+  for(let i = 0; i<activess.length; i++){
+    if(activess[i].dataset.id == id){
+      activess[i].remove();
+    }
+}}
 
 function addTestFields(){
   const currentDate = getCurrentDate();
@@ -67,9 +74,9 @@ const currentNoteName = document.querySelector(".current-name"),
 
 export let id;
 
-const ui = new UI();
+export const ui = new UI();
 
-let data = ui.retrieveLocalStorgage();
+export let data = ui.retrieveLocalStorgage();
 if (data.length > 0){
   id = (data[(data.length-1)].id)+1;
 } else {
@@ -100,55 +107,34 @@ if(id == 1){
 }
 
 mainTable.addEventListener('click', function(event){
+  
   hideArchive();
+  
   event.preventDefault();
   if(event.target.classList.contains('delete_form_button')){
     let id = event.target.dataset.id;
     
     mainTable.removeChild(event.target.parentElement.parentElement);
-
-    let tempData = data.filter(function(item){
-      if(item.id == parseInt(id))
-      {
-        deleteFromActive(item.type);
-      }
-      return item.id !== parseInt(id);
-    });
-
-    data = tempData;
-    ui.addToLocalStorage(data);
     
+    deleteNote(id);
 
   } else if (event.target.classList.contains('archiv_field-button')){
     
     let id = event.target.dataset.id;
     event.target.parentElement.parentElement.style.display='none';
-    
-    let tempData = data.filter(function(item){
-      if(item.id == parseInt(id))
-      { 
-        item.archive = 'true';
-        countArchivedNote(item.type);
-        deleteFromActive(item.type);
-        
-      }
-      return item.id;
-    });
-    data = tempData;
-    ui.addToLocalStorage(data);
-    refreshPageArchive(id);
+     addToArctiveNote(id);
   
   } else if (event.target.classList.contains('edit_field-button')){
     
     let id = event.target.dataset.id;
     mainTable.removeChild(event.target.parentElement.parentElement);
-
     openEitForm();
     
     const tempForm = data.filter(function(item){
       if(item.id == parseInt(id))
       {
         deleteFromActive(item.type);
+        removeFieldFromActive(id);
       }
       return item.id === parseInt(id);
     });
@@ -165,3 +151,32 @@ mainTable.addEventListener('click', function(event){
 });
 
 
+function deleteNote(id){
+  let tempData = data.filter(function(item){
+    if(item.id == parseInt(id))
+    {
+      deleteFromActive(item.type);
+    }
+    return item.id !== parseInt(id);
+  });
+  removeFieldFromActive(id);
+  data = tempData;
+  ui.addToLocalStorage(data);
+}
+
+function addToArctiveNote(id){
+  
+  let tempData = data.filter(function(item){
+    if(item.id == parseInt(id))
+    { 
+      item.archive = 'true';
+      countArchivedNote(item.type);
+      deleteFromActive(item.type);
+    }
+    return item.id;
+  });
+  removeFieldFromActive(id);
+  data = tempData;
+  ui.addToLocalStorage(data);
+  refreshPageArchive(id);
+}
